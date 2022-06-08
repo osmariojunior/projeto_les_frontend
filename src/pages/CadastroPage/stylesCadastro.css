@@ -1,0 +1,142 @@
+*{
+  margin: 0%;
+  padding: 0%;    
+  box-sizing: border-box;
+
+}
+
+#container_{
+  width: 100%;
+  min-width: 100%;
+  margin: 0 auto; 
+}
+
+#container-cadastro{
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background-size: cover;
+
+}
+
+#warp-cadastro {
+  background-color: #ffffff;
+  width: 390px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px;
+
+  padding-bottom: 10px ;
+  /*box-shadow: 5px 5px 0px #010830;*/
+}
+
+.formCadastro{
+  width: 100%;
+} 
+
+.titleForm{
+  display: block;
+  font-size: 30px;
+  color: #1c59db;
+
+  text-align: center;
+  line-height: 1.5;
+ 
+}
+
+.campo-writing{
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #1c59db;
+  margin-bottom: 37px;
+}
+
+.campo-writing label{
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.campo-writing input{
+  width: 100%;
+  height: 45px;
+
+  
+  display: block;
+  border: none;
+
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  padding: 0 5px;
+
+}
+
+.actionsCadastro{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 13px;
+
+}
+
+#botaoCadastro {
+  
+  border-radius: 10px;
+  width: 100%;
+  height: 50%;
+  font-size: 15px;
+  border: none;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #6a7dfe;
+
+  background: -webkit-linear-gradient(to left, #1d54a7, #1c59db);
+  background: -o-linear-gradient(to left,  #1d54a7, #1c59db );
+  background: -moz-linear-gradient(to left,  #1d54a7, #2a66e6 );
+  background: linear-gradient(to left, #1d54a7, #1c59db );
+
+}
+
+#botaoCadastro :hover{
+  cursor: pointer;
+}
+
+.text-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.txt3 {
+  font-size: 14px;
+  color: black;
+  line-height: 1.5;
+  padding-right: 5px;
+}
+
+.txt4 {
+  font-size: 14px;
+  color: #6377fa;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+
+
+

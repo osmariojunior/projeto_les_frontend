@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+<h1 align="center">
+	<img alt="Logo" src=".github/17587f6246be44baa4db3fe33f10b573.png" width="200px" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+  Projeto Les Frontend
+</h3>
 
-## Available Scripts
+<p align="center">Publique ou encontre um emprego</p>
 
-In the project directory, you can run:
+<p align="center">
+   <a href="https://www.linkedin.com/in/pedrobbarbosa/">
+    <img alt="Made by" src="https://img.shields.io/badge/linguagem%20-JavaScript%20-blue">
+  </a>
 
-### `npm start`
+  <a href="https://www.linkedin.com/in/pedrobbarbosa/">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Pedro%20Barbosa-gree">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  <a href="https://www.linkedin.com/in/pedrobbarbosa/">
+    <img alt="License" src="https://img.shields.io/badge/licença%20-MIT%20-gree">
+  </a>
+  
+  
+ 
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p align="center">
+  <a href="#-about-the-project">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-getting-started">Começando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-contribute">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">Licença</a>
+</p>
 
-### `npm test`
+## 👨🏻‍💻 Sobre o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- <p style="color: red;">Brief explanation Sobre o projeto</p>
 
-### `npm run build`
+To see the **api**, click here: [PROJECT_NAME Rest API](https://github/pedrobbarbosa/readme-template)</br>
+To see the **mobile client**, click here: [PROJECT_NAME Mobile](https://github/pedrobbarbosa/readme-template)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Tecnologias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Tecnologias that I used to develop this web client
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ReactJS](https://reactjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [headlessui](https://headlessui.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router DOM](https://reacttraining.com/react-router/)
+- [React Icons](https://react-icons.netlify.com/#/)
+- [UnForm](https://unform.dev/) [💜](https://rocketseat.com.br/)
+- [Yup](https://github.com/jquense/yup)
+- [Styled Components](https://styled-components.com/)
+- [Polished](https://github.com/styled-components/polished)
+- [Axios](https://github.com/axios/axios)
+- [Husky](https://github.com/typicode/husky)
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [Commitizen](https://github.com/commitizen/cz-cli)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
 
-### `npm run eject`
+## 💻 Começando
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Requisitos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Have this application's [API](https://github.com/pedrobbarbosa/gobarber-api) running
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Clone o projeto e acesso o arquivo**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+$ git clone https://github.com/pedrobbarbosa/NOME_DO_REPO.git && cd NOME_DO_REPO
+```
 
-## Learn More
+**Follow the steps below**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Install the dependencies
+$ yarn
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Be sure the file 'src/services/api.ts' have the IP to your API
 
-### Code Splitting
+# Start the client
+$ yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🤔 Como contribuir
 
-### Analyzing the Bundle Size
+**Follow the steps below**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+# Clone your fork
+$ git clone your-fork-url && cd NOME_DO_REPO
 
-### Making a Progressive Web App
+# Create a branch with your feature
+$ git checkout -b my-feature
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Make the commit with your changes
+$ git commit -m 'feat: My new feature'
 
-### Advanced Configuration
+# Send the code to your remote branch
+$ git push origin my-feature
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+After your pull request is merged, you can delete your branch
 
-### Deployment
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with 💜 &nbsp; &nbsp;
