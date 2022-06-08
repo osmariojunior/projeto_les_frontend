@@ -2,21 +2,16 @@ import React, { useState } from "react"
 /*Icon da página */
 import { useNavigate } from "react-router-dom";
 /*Linkando rotas entre as views*/
-import { Link } from "react-router-dom"
 import { useStore } from '../../context';
 
 /*Amarzenamentos dos logins*/
 export default function ConvertJob({convertedJobs, setConvertedJobs}) {
     const navigate = useNavigate();
-    const { convertJobHandler } = useStore()
+    const { authToken, convertJobHandler, createJobHandler } = useStore()
 
     const [description, setDescription] = useState("")
     const [name, setName] = useState("")
     const [dollarSalary, setDollarSalary] = useState(0)
-    const [realSalary, setRealSalary] = useState(0)
-    const [realSalaryLiquid, setRealSalaryLiquid] = useState(0)
-    const [irDeduction, setIrDeduction] = useState(0)
-    const [inssDeduction, setINSSDeduction] = useState(0)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,25 +30,37 @@ export default function ConvertJob({convertedJobs, setConvertedJobs}) {
               }
 
               setConvertedJobs([...convertedJobs, formatedData])
-
-              console.log(convertedJobs, formatedData)
-
-              setDescription("")
-              setName("")
-              setDollarSalary(0)
-
-
-                // setRealSalary(data.converted_gross_salary);
-                // setRealSalaryLiquid(data.liquid_salary);
-                // setIrDeduction(data.ir_deduction_value);
-                // setINSSDeduction(data.inss_deduction_value);
             })
             .catch(() => { alert("Login failed") })
     }
 
+    const handleJobSave = () => {
+      if(!authToken) {
+        navigate('/login')
+      }
+
+      if(!name || name === '' || !dollarSalary) {
+        return
+      }
+
+      createJobHandler({
+        name, description, dollarSalary
+      }).then(() => {
+        alert('Sucessfully created job.')
+      })
+      .catch(() => { alert('Failed to save job.')})
+    }
+
+    const clear = () => {
+      setName("")
+      setDescription("")
+      setDollarSalary(0)
+      setConvertedJobs([])
+    }
+
     return (
         <div className="">
-                    <form className="form grid grid-cols-3 gap-4 lg:gap-8" onSubmit={handleSubmit}>
+                    <form className="form grid grid-cols-3 gap-2 lg:gap-8" onSubmit={handleSubmit}>
                         <div className="col-span-3 bg-slate-200 rounded-lg border p-2 m-2">
                         <h1 className="title">Conversão</h1>
                         </div>
@@ -85,40 +92,16 @@ export default function ConvertJob({convertedJobs, setConvertedJobs}) {
                             placeholder="Digite o valor do salário em dolars"/>
                         </div>
 
-                        {/* <div className="field">
-                            <label htmlFor="realSalary">Salário bruto em reais: </label>
-                            <input type="number" name="realSalary"
-                            className={realSalary !== "" ? "has-val input" : "input"}
-                            value={realSalary}
-                            readOnly disabled/>
-                        </div>
-
-                        <div className="field">
-                            <label htmlFor="irDeduction">Dedução do imposto de renda: </label>
-                            <input type="number" name="irDeduction"
-                            className={irDeduction !== "" ? "has-val input" : "input"}
-                            value={irDeduction}
-                            disabled={true} />
-                        </div>
-
-                        <div className="field">
-                            <label htmlFor="realSalaryLiquid">Dedução do INSS: </label>
-                            <input type="number" name="inssDeduction"
-                            className={inssDeduction !== "" ? "has-val input" : "input"}
-                            value={inssDeduction}
-                            readOnly disabled/>
-                        </div>
-
-                        <div className="field">
-                            <label htmlFor="realSalaryLiquid">Salário líquido em reais: </label>
-                            <input type="number" name="realSalaryLiquid"
-                            className={realSalaryLiquid !== "" ? "has-val input" : "input"}
-                            value={realSalaryLiquid}
-                            readOnly disabled/>
-                        </div> */}
-
-                        <div className="actions col-span-3">
+                        <div className="actions col-span-1">
                             <button id="botao"type="submit">Converter</button>
+                        </div>
+
+                        <div className="actions col-span-1">
+                            <button id="botao"type="button" onClick={handleJobSave}>Salvar</button>
+                        </div>
+
+                        <div className="actions col-span-1">
+                            <button id="botao"type="button" onClick={clear}>Limpar</button>
                         </div>
                     </form>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import company01 from "../../assets/photo01.jpeg";
 import company02 from "../../assets/photo02.jpeg";
@@ -36,8 +36,12 @@ const companies = [
     created_at: 'Há 7 horas',
   }
 ]
+
 const VagasPage = () => {
-    const { convertJobHandler, userData} = useStore()
+    const { convertJobHandler, userData } = useStore()
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+    console.log(user)
     return (
         <>
         <main className="bg-gray-100 dark:bg-gray-800 rounded-2xl h-screen overflow-hidden relative">
@@ -52,7 +56,7 @@ const VagasPage = () => {
                         <div className="flex items-center w-full justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-2xl">
                           <div className="flex items-center w-full">
                               <div className="shadow-lg rounded-2xl p-4 bg-white text-gray-800">
-                                <div class="m-2 p-2">
+                                <div className="m-2 p-2">
                                   <h1 className="text-2xl font-bold">Vagas</h1>
                                   <p className="text-gray-500 font-light py-2">
                                   Com base no seu perfil e histórico de pesquisas
@@ -71,6 +75,15 @@ const VagasPage = () => {
                                     created_at={company.created_at}
                                     />
                                     ))}
+                                  {user.jobs.map(job => (
+                                    <CardVaga key={job.id}
+                                    title={job.name}
+                                    company={job.company_name}
+                                    state={'São Paulo, Brasil.'}
+                                    photo={company03}
+                                    created_at={'Há 7 horas'}
+                                    />
+                                  ))}
                                 </div>
                               </div>
                           </div>

@@ -8,7 +8,7 @@ export const StoreProvider = ({ children }) => {
     const [userData, setUserData] = useState(false);
     const [userJobs, setUserJobs] = useState([]);
     const [userCompanies, setUserCompanies] = useState([]);
-    const [authToken, setAuthToken] = useState(false);
+    const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
 
     const loginHandler = async ({
         password, nickname
@@ -19,9 +19,17 @@ export const StoreProvider = ({ children }) => {
                 nickname: nickname,
             })
             setAuthToken(data.auth.token)
+            localStorage.setItem('authToken', data.auth.token)
+
+
             setUserData(data.data.user)
             setUserJobs(data.data.jobs)
             setUserCompanies(data.data.companies)
+
+            const user = data.data.user;
+            user.jobs = data.data.jobs
+            user.companies = data.data.companies
+            localStorage.setItem('user', JSON.stringify(user, null, 2))
         } catch (err) {
             console.error(err)
             console.error('Falha durante login')
@@ -61,12 +69,16 @@ export const StoreProvider = ({ children }) => {
     const createJobHandler = async ({ name, description, dollarSalary }) => {
         const response = await axios.post(`${API_URL}/jobs`, {
             name, description, dollarSalary
+        },  {
+          headers: {
+            authorization: authToken
+          }
         })
         return response.data
     }
 
     return (
-        <StoreContext.Provider value={{ 
+        <StoreContext.Provider value={{
             loginHandler,
             registerHandler,
             convertJobHandler,
