@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 import "./styles.css"
+/*Icon da página */
+
+
 
 /*Linkando rotas entre as views*/ 
 import { Link } from "react-router-dom"
@@ -10,9 +13,15 @@ const LoginPage = () =>{
     const[password, setPassword] = useState("")
 
     const handleSubmit = (e) => {
+        
+    
         console.log("submit", { email, password });
     }
 
+/*Cabeça / Cabeçalho da página */
+<head>
+    <link rel="icon" href="%PUBLIC_URL%/aeronaveLogo" />
+</head>
 
 /* Corpo da página login*/ 
     return (
@@ -26,12 +35,12 @@ const LoginPage = () =>{
                         <br />
 
                         <div className="field">
-                            <label htmlFor="email">Email: </label>
+                            <label htmlFor="email">E-mail: </label>
                             <input type="email" name="email"  
                             className={email !== "" ? "has-val input" : "input"}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            />
+                            placeholder="Digite seu e-mail"/>
                         </div>
                         
                         <div className="field">
@@ -40,16 +49,16 @@ const LoginPage = () =>{
                             className={password !== "" ? "has-val input" : "input"}
                             value={password}
                             onChange={(e) =>setPassword(e.target.value)}
-                            />
+                            placeholder="Digite sua senha"/>
                         </div>
                         
                         <div className="actions">
-                            <button id="botão"type="submit">Entrar</button>
+                            <button id="botao"type="submit">Entrar</button>
                         </div>
                     
-                        <div className="text-cadastro">
+                        <div className="text-login">
                             <span className="txt1">Não possui conta? </span>
-                            <Link className="txt2" to="/cadastro">Criar conta</Link>
+                            <Link className="txt2" to="/cadastro"><b>Criar conta</b></Link>
                         </div>
                     </form>
                 </div>
