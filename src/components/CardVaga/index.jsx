@@ -21,6 +21,11 @@ const CardVaga = ({title, company, state, photo, created_at}) => {
         {created_at}
       </span>
     </div>
+    <div className="col-span-3 p-2 m-2">
+      <button className="bg-blue-500 text-slate-200 font-extrabold font-mono rounded-lg border shadow-sm p-2 m-2">
+        Candidatar-se
+      </button>
+    </div>
     </div>
   );
 }
