@@ -1,25 +1,27 @@
 import { useContext, createContext, useState } from 'react';
 import axios from 'axios';
+const API_URL = 'https://convert-dr-app.herokuapp.com'
 
 const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
     const [userData, setUserData] = useState(false);
+    const [userJobs, setUserJobs] = useState([]);
+    const [userCompanies, setUserCompanies] = useState([]);
     const [authToken, setAuthToken] = useState(false);
 
     const loginHandler = async ({
         password, nickname
     }) => {
         try {
-            const { data } = await axios.post('https://convert-dr-app.herokuapp.com/users/login', {
+            const { data } = await axios.post(`${API_URL}/users/login`, {
                 password: password,
                 nickname: nickname,
             })
             setAuthToken(data.auth.token)
-            setUserData(data.data)
-
-            console.log(authToken)
-            console.log(userData)
+            setUserData(data.data.user)
+            setUserJobs(data.data.jobs)
+            setUserCompanies(data.data.companies)
         } catch (err) {
             console.error(err)
             console.error('Falha durante login')
@@ -27,11 +29,36 @@ export const StoreProvider = ({ children }) => {
         }
     }
 
+    const registerHandler = async ({
+        email,
+        password,
+        nickname,
+        firstName,
+        lastName,
+    }) => {
+        try {
+            await axios.post(`${API_URL}/users/register`, {
+                email,
+                password,
+                nickname,
+                firstName,
+                lastName,
+            })
+        } catch (err) {
+            console.error(err)
+            console.error('Falha durante cadastro')
+            throw new Error('Falha durante cadastro')
+        }
+    }
+
     return (
         <StoreContext.Provider value={{ 
             loginHandler,
+            registerHandler,
             authToken,
             userData,
+            userJobs,
+            userCompanies
         }}>
             {children}
         </StoreContext.Provider>
