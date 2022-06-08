@@ -58,10 +58,14 @@ const CadastroPage = () =>{
                         </div>
 
                         <div className="campo-writing">
-                            <label htmlFor="telefone">Telefone: </label>
-                            <input type="tel" name="telefone"  required placeholder="(xx) xxxxx-xxxx"/>
+                            <label htmlFor="nickname">Nickname: </label>
+                            <input type="txt" name="telefone"  required placeholder="Digite uma palavra passe"/>
                         </div>
 
+                        <div className="campo-writing">
+                            <label htmlFor="senha">Senha:</label>
+                            <input type="password" name="senha" required placeholder="Digite sua senha" />
+                        </div>
 
                         <div className="actionsCadastro">
                             <button id="botaoCadastro" type="submit">Cadastrar</button>
