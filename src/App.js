@@ -1,15 +1,17 @@
-import './App.css';
-import './styles/global.css';
-import { Header } from './components/Header';
+import "./App.css";
+import "./styles/global.css";
+import { Header } from "./components/Header";
 
-import AppRoutes from './pages/AppRoutes.jsx';
-
+import AppRoutes from "./pages/AppRoutes.jsx";
+import { StoreProvider } from "./context";
 
 function App() {
   return (
     <div className="app">
-      <Header />
-      <AppRoutes/>
+      <StoreProvider>
+        <Header />
+        <AppRoutes />
+      </StoreProvider>
     </div>
   );
 }

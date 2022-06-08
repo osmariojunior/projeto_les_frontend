@@ -3,14 +3,24 @@ import "./styles.css"
 
 /*Linkando rotas entre as views*/ 
 import { Link } from "react-router-dom"
+import { useStore } from '../../context';
 
 /*Amarzenamentos dos logins*/
-const LoginPage = () =>{
-    const[email, setEmail] = useState("")
+export default function LoginPage() {
+    const { loginHandler } = useStore()
+
+    const[nickname, setNickname] = useState("")
     const[password, setPassword] = useState("")
 
     const handleSubmit = (e) => {
-        console.log("submit", { email, password });
+        e.preventDefault()
+        
+        loginHandler({
+            password: password,
+            nickname: nickname,
+        })
+            .then(() => { alert("Login successful") })
+            .catch(() => { alert("Login failed") })
     }
 
 
@@ -26,11 +36,11 @@ const LoginPage = () =>{
                         <br />
 
                         <div className="field">
-                            <label htmlFor="email">Email: </label>
-                            <input type="email" name="email"  
-                            className={email !== "" ? "has-val input" : "input"}
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            <label htmlFor="nickname">Nickname: </label>
+                            <input type="text" name="nickname"  
+                            className={nickname !== "" ? "has-val input" : "input"}
+                            value={nickname}
+                            onChange={(e) => setNickname(e.target.value)}
                             />
                         </div>
                         
@@ -55,8 +65,5 @@ const LoginPage = () =>{
                 </div>
             </div>
         </div>
-
     )
 }
-
-export default LoginPage
