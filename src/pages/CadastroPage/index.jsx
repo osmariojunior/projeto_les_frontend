@@ -1,43 +1,44 @@
 import React, { useState } from "react"
 import "./stylesCadastro.css"
 import { useStore } from '../../context';
-//*Linkando rotas entre as views*
 import { Link } from "react-router-dom"
 
-/*Amarzenamentos dos cadastros*/
-const CadastroPage = () =>{
-    <Link to ="/login"></Link>
+import { useNavigate } from "react-router-dom";
 
-    const { registerHandler } = useStore();
+/*Amarzenamentos dos cadastros*/
+const CadastroPage = () => {
+    const { registerHandler, userData, userCompanies, userJobs } = useStore();
     
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [nickname, setNickname] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
     
     const handleSubmit = (e) => {
-        e.preventDefaut();
+        console.log('aa')
+        e.preventDefault();
 
         registerHandler({
-            firstName: name,
+            firstName: firstName,
             lastName: lastName,
             email: email,
             password: password,
             nickname: nickname,
         })
-            .then(() => { alert('Succesfully register new user.')})
+            .then(() => {
+                navigate("/login")
+            })
             .catch(() => { alert('Failed to register new user.')})
     }
 
-//Corpo da página
     return (
         <div id="container_">
-
             <div  id="container-cadastro" style={{backgroundImage: "url('/aviao1.jpg')"}} >
-
                 <div id="warp-cadastro">
-                    <form className="formCadastro" onSubmit={handleSubmit}>
+                    <form className="form" onSubmit={handleSubmit}>
                         <h1 className="titleForm">Cadastre-se</h1>
                         <br />
                         <br />
@@ -45,9 +46,9 @@ const CadastroPage = () =>{
                         <div className="campo-writing">
                             <label htmlFor="nome">Nome:</label>
                             <input type="text" name="nome"
-                            className={name !== "" ? "has-val input" : "input"}
-                            value={name} 
-                            onChange={(e) => setName(e.target.value)}
+                            className={firstName !== "" ? "has-val input" : "input"}
+                            value={firstName} 
+                            onChange={(e) => setFirstName(e.target.value)}
                             required placeholder="Digite seu primeiro nome"/>
                         </div>
 
@@ -76,13 +77,14 @@ const CadastroPage = () =>{
                             <input type="txt" name="telefone"  
                             required
                             value={nickname} 
-                            placeholder="Digite o nome de usuário" 
+                            placeholder="Digite o nome de usuário de no mínimo 6 caracteres " 
                             onChange={(e) => setNickname(e.target.value)} />
                         </div>
 
                         <div className="campo-writing">
                             <label htmlFor="senha">Senha:</label>
                             <input type="password" name="senha" 
+                            minLength={8}
                             value={password} 
                             required placeholder="Digite sua senha" 
                             onChange={(e) => setPassword(e.target.value)}/>
@@ -91,19 +93,15 @@ const CadastroPage = () =>{
                         <div className="actionsCadastro">
                             <button id="botaoCadastro" type="submit">Cadastrar</button>
                         </div>
-
-                        <div className="text-cadastro">
-                        <span className="txt3">Já possui conta? </span>
-                            <Link className="txt4" to="/Login"><b>Entrar</b></Link>
-                        </div>
-
                     </form>
+                    <div className="text-cadastro">
+                        <span className="txt3">Já possui conta? </span>
+                        <Link className="txt4" to="/Login"><b>Entrar</b></Link>
+                    </div>
                 </div>
             </div>
         </div>
     )
-
-
 }
    
 export default CadastroPage

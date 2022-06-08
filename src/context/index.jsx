@@ -51,10 +51,26 @@ export const StoreProvider = ({ children }) => {
         }
     }
 
+    const convertJobHandler = async ({ name, description, dollarSalary }) => {
+        const response = await axios.post(`${API_URL}/jobs/convert`, {
+            name, description, dollarSalary
+        })
+        return response.data
+    }
+
+    const createJobHandler = async ({ name, description, dollarSalary }) => {
+        const response = await axios.post(`${API_URL}/jobs`, {
+            name, description, dollarSalary
+        })
+        return response.data
+    }
+
     return (
         <StoreContext.Provider value={{ 
             loginHandler,
             registerHandler,
+            convertJobHandler,
+            createJobHandler,
             authToken,
             userData,
             userJobs,

@@ -113,7 +113,7 @@ input:hover {
     padding-bottom: 13px;
 }
 
-#botão {
+#botao {
     
     border-radius: 10px;
     width: 100%;
@@ -136,15 +136,16 @@ input:hover {
     background: linear-gradient(to left, #1d54a7, #1c59db );
 }
 
-#botão:hover {
+.actions:hover {
     cursor: pointer;
 }
 
-.text-cadastro {
+.text-login {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .txt1 {
@@ -159,4 +160,9 @@ input:hover {
     color: #6a7dfe;
     line-height: 1.5;
     text-decoration: none;
+}
+
+/*Estilização do input da "ConvertJobPage"*/
+input:disabled {
+    background-color: #E7E9EB
 }

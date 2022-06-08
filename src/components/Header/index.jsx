@@ -1,11 +1,17 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { useStore } from '../../context';
 
 import styles from "./styles.module.css";
 
-const navigation = [
+const guestNavigation = [
   { name: 'Login', href: '/login', current: true },
+  { name: 'Cadastro', href: '/cadastro', current: true },
+]
+
+const authNavigation = [
+  {name: 'Dashboard', href: '/home', current: true}
 ]
 
 function classNames(...classes) {
@@ -13,6 +19,8 @@ function classNames(...classes) {
 }
 
 export function Header() {
+  const { convertJobHandler, userData} = useStore()
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
     {({ open }) => (
@@ -45,7 +53,7 @@ export function Header() {
               </div>
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
-                  {navigation.map((item) => (
+                  {guestNavigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -131,7 +139,7 @@ export function Header() {
 
         <Disclosure.Panel className="sm:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
+            {guestNavigation.map((item) => (
               <Disclosure.Button
                 key={item.name}
                 as="a"
@@ -145,6 +153,10 @@ export function Header() {
                 {item.name}
               </Disclosure.Button>
             ))}
+
+            <Disclosure.Button>
+              {userData}
+            </Disclosure.Button>
           </div>
         </Disclosure.Panel>
       </>

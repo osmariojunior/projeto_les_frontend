@@ -1,37 +1,30 @@
 import React, { useState } from "react"
 import "./styles.css"
-/*Icon da página */
-
-
-
-/*Linkando rotas entre as views*/ 
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 import { useStore } from '../../context';
 
 /*Amarzenamentos dos logins*/
 export default function LoginPage() {
+    const navigate = useNavigate();
     const { loginHandler } = useStore()
 
     const[nickname, setNickname] = useState("")
     const[password, setPassword] = useState("")
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         
         loginHandler({
             password: password,
             nickname: nickname,
         })
-            .then(() => { alert("Login successful") })
+            .then(() => {
+                navigate("/dashboard")
+            })
             .catch(() => { alert("Login failed") })
     }
 
-/*Cabeça / Cabeçalho da página */
-<head>
-    <link rel="icon" href="%PUBLIC_URL%/aeronaveLogo" />
-</head>
-
-/* Corpo da página login*/ 
     return (
         <div id="container" >
             <div style={{backgroundImage: "url('/aviao1.jpg')"}} id="container-login">
