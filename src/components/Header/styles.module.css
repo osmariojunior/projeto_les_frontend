@@ -1,0 +1,32 @@
+.header {
+  width: 100%;
+  padding: 1.5rem;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+.header h1 {
+  margin-right: 1rem;
+  position: relative;
+  cursor: pointer;
+  color: white;
+}
+
+.header h1 span {
+  position: absolute;
+  bottom: 0;
+  left: 5rem;
+  transform: translateY(1.4rem);
+  color: #1c59db;
+}
+
+.header h1 span::after {
+  content: ".";
+  color: var(--gray-100);
+}
+
+.header a {
+  text-decoration: none;
+}

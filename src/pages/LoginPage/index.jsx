@@ -10,8 +10,6 @@ const LoginPage = () =>{
     const[password, setPassword] = useState("")
 
     const handleSubmit = (e) => {
-        
-    
         console.log("submit", { email, password });
     }
 

@@ -1,4 +1,6 @@
 import './App.css';
+import './styles/global.css';
+import { Header } from './components/Header';
 
 import AppRoutes from './pages/AppRoutes.jsx';
 
@@ -6,7 +8,8 @@ import AppRoutes from './pages/AppRoutes.jsx';
 function App() {
   return (
     <div className="app">
-     <AppRoutes/>
+      <Header />
+      <AppRoutes/>
     </div>
   );
 }
