@@ -3,39 +3,29 @@ import React, { useState } from 'react';
 import company01 from "../../assets/photo01.jpeg";
 import company02 from "../../assets/photo02.jpeg";
 import company03 from "../../assets/photo03.jpeg";
-import Calendar from '../../components/Calendar';
+import company04 from "../../assets/photo04.jpeg";
+import company05 from "../../assets/photo05.jpeg";
 import CardVaga from '../../components/CardVaga';
 import Search from '../../components/Search';
 import Sidebar from '../../components/Sidebar';
 import { useStore } from '../../context';
 
-const companies = [
-  {
-    id: 1,
-    photo: company01,
-    title: 'Desenvolvedor Full Stack',
-    company: 'GeekHunter',
-    state: 'São Paulo, Brasil.',
-    created_at: 'Há 4 horas',
-
-  },
-  {
-    id: 2,
-    photo: company02,
-    title: 'Desenvolvedor Sênior',
-    company: 'Nubank',
-    state: 'São Paulo, Brasil.',
-    created_at: 'Há 2 horas',
-  },
-  {
-    id: 3,
-    photo: company03,
-    title: 'Desenvolvedor Mobile',
-    company: 'EX',
-    state: 'São Paulo',
-    created_at: 'Há 7 horas',
+const getRandomImage = () => {
+  switch (Math.round(Math.random() * 5)) {
+    case 1:
+      return company01
+    case 2:
+      return company02
+    case 3:
+      return company03
+    case 4:
+      return company04
+    case 5:
+      return company05
+    default:
+      return company01
   }
-]
+}
 
 const VagasPage = () => {
     const { convertJobHandler, userData } = useStore()
@@ -66,21 +56,12 @@ const VagasPage = () => {
                                 <hr/>
 
                                 <div className="grid grid-cols-1 grid-rows-1 gap-4">
-                                  {companies.map(company => (
-                                    <CardVaga key={company.id}
-                                    title={company.title}
-                                    company={company.company}
-                                    state={company.state}
-                                    photo={company.photo}
-                                    created_at={company.created_at}
-                                    />
-                                    ))}
                                   {user.jobs.map(job => (
                                     <CardVaga key={job.id}
                                     title={job.name}
                                     company={job.company_name}
                                     state={'São Paulo, Brasil.'}
-                                    photo={company03}
+                                    photo={getRandomImage()}
                                     created_at={'Há 7 horas'}
                                     />
                                   ))}

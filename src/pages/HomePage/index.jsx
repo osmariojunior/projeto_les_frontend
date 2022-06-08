@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Calendar from "../../components/Calendar";
 
 import UserHistory from "../../components/UserHistory";
 import ConvertJob from "../../components/ConvertJob";
@@ -49,10 +48,6 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="w-full sm:w-1/2 xl:w-1/3">
-                      <Calendar/>
                   </div>
               </div>
           </div>

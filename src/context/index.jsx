@@ -5,7 +5,7 @@ const API_URL = 'https://convert-dr-app.herokuapp.com'
 const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
-    const [userData, setUserData] = useState(false);
+    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('user')));
     const [userJobs, setUserJobs] = useState([]);
     const [userCompanies, setUserCompanies] = useState([]);
     const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
