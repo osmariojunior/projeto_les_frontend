@@ -5,18 +5,19 @@ import UserHistory from "../../components/UserHistory";
 import ConvertJob from "../../components/ConvertJob";
 import Sidebar from "../../components/Sidebar";
 import Search from "../../components/Search";
+import { useStore } from "../../context";
 
 const HomePage = () => {
   const [convertedJobs, setConvertedJobs] = useState([]);
-
+  const { convertJobHandler, userData} = useStore()
 
   return (
 
 <main className="bg-gray-100 dark:bg-gray-800 rounded-2xl h-screen overflow-hidden relative">
     <div className="flex items-start justify-between">
-        <Sidebar/>
+        {userData ? <Sidebar/> : null}
         <div className="flex flex-col w-full pl-0 md:p-4 md:space-y-4">
-          <Search/>
+          {userData ? <Search/> : null}
           <div className="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
               <div className="flex flex-col flex-wrap sm:flex-row ">
                   <div className="w-full sm:w-1/2 xl:w-1/3">
