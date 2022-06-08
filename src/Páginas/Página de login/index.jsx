@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 import "./styles.css"
+/*Icon da página */
+
+
 
 /*Linkando rotas entre as views*/ 
 import { Link } from "react-router-dom"
@@ -23,6 +26,10 @@ export default function LoginPage() {
             .catch(() => { alert("Login failed") })
     }
 
+/*Cabeça / Cabeçalho da página */
+<head>
+    <link rel="icon" href="%PUBLIC_URL%/aeronaveLogo" />
+</head>
 
 /* Corpo da página login*/ 
     return (
@@ -50,16 +57,16 @@ export default function LoginPage() {
                             className={password !== "" ? "has-val input" : "input"}
                             value={password}
                             onChange={(e) =>setPassword(e.target.value)}
-                            />
+                            placeholder="Digite sua senha"/>
                         </div>
                         
                         <div className="actions">
-                            <button id="botão"type="submit">Entrar</button>
+                            <button id="botao"type="submit">Entrar</button>
                         </div>
                     
-                        <div className="text-cadastro">
+                        <div className="text-login">
                             <span className="txt1">Não possui conta? </span>
-                            <Link className="txt2" to="/cadastro">Criar conta</Link>
+                            <Link className="txt2" to="/cadastro"><b>Criar conta</b></Link>
                         </div>
                     </form>
                 </div>
